@@ -21,3 +21,9 @@ def static_files(filename):
     if target.is_file():
         return send_from_directory(BASE_DIR, filename)
     return jsonify(error="Not found"), 404
+
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", "10000"))
+    app.run(host="0.0.0.0", port=port)
